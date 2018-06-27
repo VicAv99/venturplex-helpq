@@ -1,3 +1,35 @@
-<p>
-  help-request-list works!
-</p>
+<div class="list-grid">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title><h2>People in need...</h2></mat-card-title>
+      <mat-card-subtitle>Please help us!</mat-card-subtitle>
+    </mat-card-header>
+    <img/>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item class="mat-list-option">
+          <h3 matLine>Name: </h3>
+          <h4 matLine>Requesting from: </h4>
+
+          <mat-accordion>
+            <mat-expansion-panel matLine>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                  Project
+                </mat-panel-title>
+                <mat-panel-description>
+                  name of description
+                </mat-panel-description>
+              </mat-expansion-panel-header>
+              description
+            </mat-expansion-panel>
+          </mat-accordion>
+
+          <button mat-button color="accent">
+            <mat-icon matListIcon>clear</mat-icon>
+          </button>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+</div>

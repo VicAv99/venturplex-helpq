@@ -16,10 +16,6 @@ span {
   font-size: 25px;
 }
 
-span:hover {
-  cursor: pointer;
-}
-
 .mat-sidenav-container {
   background: whitesmoke;
   flex: 1;

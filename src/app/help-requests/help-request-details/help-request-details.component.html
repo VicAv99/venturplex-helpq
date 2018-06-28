@@ -4,7 +4,7 @@
       <h2>Request Help</h2>
     </mat-card-title>
   </mat-card-header>
-  <form (submit)="savingPost.emit(selectedRequest)">
+  <form (submit)="saved.emit(selectedRequest)">
     <mat-card-content>
       <mat-form-field>
         <input matInput placeholder="Your Name"
@@ -29,7 +29,7 @@
     </mat-card-content>
     <mat-card-actions>
       <button mat-raised-button type="submit" color="primary">Save</button>
-      <button  mat-raised-button type="button" color="accent" (click)="cancellingPost.emit(selectedRequest)">Cancel</button>
+      <button  mat-raised-button type="button" color="accent" (click)="cancelled.emit(selectedRequest)">Cancel</button>
     </mat-card-actions>
   </form>
 </mat-card>

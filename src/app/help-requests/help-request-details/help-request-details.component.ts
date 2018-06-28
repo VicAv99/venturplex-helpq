@@ -8,8 +8,9 @@ import { Requests } from '../../shared/request';
 })
 export class HelpRequestDetailsComponent {
   selectedRequest: Requests;
-  @Output() savingPost = new EventEmitter();
-  @Output() cancellingPost = new EventEmitter();
+  @Output() saved = new EventEmitter();
+  @Output() cancelled = new EventEmitter();
+
   @Input() set requests(value: Requests) {
     this.selectedRequest = Object.assign({}, value.data);
   }

@@ -8,6 +8,7 @@ import { Requests } from '../../shared/request';
 })
 export class HelpRequestListComponent {
   @Input() requests: Requests[];
+
   @Output() selected = new EventEmitter();
-  @Output() deletingPost = new EventEmitter();
+  @Output() deleted = new EventEmitter();
 }

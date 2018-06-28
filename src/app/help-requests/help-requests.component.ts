@@ -34,28 +34,28 @@ export class HelpRequestsComponent implements OnInit {
     this.requestCol = request;
   }
 
-  savePost(req) {
-    console.log(req);
-    req.id ? this.updatePost(req) : this.addPost(req);
+  saveRequest(request) {
+    console.log(request);
+    request.id ? this.updateRequest(request) : this.addRequest(request);
   }
 
-  addPost(req) {
+  addRequest(request) {
     this.af.collection('requests').add({
-      'requester': req.requester,
-      'assignee': req.assignee,
-      'project': req.project,
-      'name': req.name,
-      'description': req.description
+      'requester': request.requester,
+      'assignee': request.assignee,
+      'project': request.project,
+      'name': request.name,
+      'description': request.description
     });
   }
 
-  updatePost(req) {
-    this.individualRequest = this.af.doc(`requests/${req.id}`);
-    this.individualRequest.update(req);
+  updateRequest(request) {
+    this.individualRequest = this.af.doc(`requests/${request.id}`);
+    this.individualRequest.update(request);
     this.reset();
   }
 
-  deletePost(id) {
+  deleteRequest(id) {
     this.af.doc(`requests/${id}`).delete();
   }
 

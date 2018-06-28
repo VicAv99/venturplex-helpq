@@ -53,13 +53,13 @@ export class HelpRequestsComponent implements OnInit {
   }
 
   reset() {
-    this.requestCol = {
+    this.requestCol = ({
       requester: '',
       assignee: '',
       project: '',
       name: '',
       description: ''
-    };
+    } as null);
   }
 
 }

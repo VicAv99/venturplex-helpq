@@ -12,6 +12,6 @@ export class HelpRequestDetailsComponent {
   @Output() cancelled = new EventEmitter();
 
   @Input() set requests(value: Requests) {
-    this.selectedRequest = Object.assign({}, value.data);
+    this.selectedRequest = Object.assign({}, value.data, value);
   }
 }

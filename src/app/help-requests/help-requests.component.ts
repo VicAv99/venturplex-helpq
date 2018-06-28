@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Observable } from 'rxjs';
 import { Requests } from '../shared/request';
-import { map } from 'rxjs/operators';
+import { map, concatAll } from 'rxjs/operators';
 
 @Component({
   selector: 'app-help-requests',
@@ -35,7 +35,6 @@ export class HelpRequestsComponent implements OnInit {
   }
 
   saveRequest(request) {
-    console.log(request);
     request.id ? this.updateRequest(request) : this.addRequest(request);
   }
 
@@ -52,7 +51,6 @@ export class HelpRequestsComponent implements OnInit {
   updateRequest(request) {
     this.individualRequest = this.af.doc(`requests/${request.id}`);
     this.individualRequest.update(request);
-    this.reset();
   }
 
   deleteRequest(id) {

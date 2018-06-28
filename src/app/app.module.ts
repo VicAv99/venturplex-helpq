@@ -5,6 +5,7 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppMaterialModule } from './app-material.module';
+import { MarkdownModule } from 'angular2-markdown';
 
 import { AppComponent } from './app.component';
 import { HelpRequestsComponent } from './help-requests/help-requests.component';
@@ -27,7 +28,8 @@ import { firebaseConfig } from '../../files/firebaseconfig';
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    AppMaterialModule
+    AppMaterialModule,
+    MarkdownModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

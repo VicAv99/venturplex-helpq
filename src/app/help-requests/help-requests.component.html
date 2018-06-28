@@ -1,7 +1,7 @@
 <div class="request-grid">
   <div class="request-list">
     <app-help-request-details [requests]="requestCol"
-                              (savingPost)="addPost($event)"
+                              (savingPost)="savePost($event)"
                               (cancellingPost)="cancel($event)">
     </app-help-request-details>
   </div>

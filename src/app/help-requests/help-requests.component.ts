@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Observable } from 'rxjs';
 import { Requests } from '../shared/request';
 import { map } from 'rxjs/operators';
@@ -12,6 +12,7 @@ import { map } from 'rxjs/operators';
 export class HelpRequestsComponent implements OnInit {
   requestCol: AngularFirestoreCollection<Requests>;
   requests: Observable<any[]>;
+  individualRequest: AngularFirestoreDocument;
 
   constructor(private af: AngularFirestore) { }
 
@@ -29,11 +30,16 @@ export class HelpRequestsComponent implements OnInit {
   }
 
   selectRequest(request) {
+    console.log(request);
     this.requestCol = request;
   }
 
+  savePost(req) {
+    console.log(req);
+    req.id ? this.updatePost(req) : this.addPost(req);
+  }
+
   addPost(req) {
-    console.log('REQ', req);
     this.af.collection('requests').add({
       'requester': req.requester,
       'assignee': req.assignee,
@@ -43,8 +49,13 @@ export class HelpRequestsComponent implements OnInit {
     });
   }
 
+  updatePost(req) {
+    this.individualRequest = this.af.doc(`requests/${req.id}`);
+    this.individualRequest.update(req);
+    this.reset();
+  }
+
   deletePost(id) {
-    console.log(id);
     this.af.doc(`requests/${id}`).delete();
   }
 

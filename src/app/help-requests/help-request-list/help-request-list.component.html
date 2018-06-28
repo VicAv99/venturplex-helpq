@@ -13,7 +13,7 @@
               <h4>{{req.data.requester}} | {{req.data.project}} | {{req.data.assignee}}</h4>
             </mat-panel-title>
             <mat-panel-description>
-              <h3>{{req.data.name}}</h3>
+              <h3>{{req.data.name}} | {{req.data.createdAt | date: 'h:mm a'}}</h3>
             </mat-panel-description>
           </mat-expansion-panel-header>
           <markdown>{{req.data.description}}</markdown>

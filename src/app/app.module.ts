@@ -13,13 +13,15 @@ import { HelpRequestListComponent } from './help-requests/help-request-list/help
 import { HelpRequestDetailsComponent } from './help-requests/help-request-details/help-request-details.component';
 
 import { firebaseConfig } from '../../files/firebaseconfig';
+import { DateTimeFormatPipe } from './date-time-format.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HelpRequestsComponent,
     HelpRequestListComponent,
-    HelpRequestDetailsComponent
+    HelpRequestDetailsComponent,
+    DateTimeFormatPipe
   ],
   imports: [
     BrowserModule,

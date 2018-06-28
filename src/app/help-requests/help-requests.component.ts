@@ -38,12 +38,15 @@ export class HelpRequestsComponent implements OnInit {
   }
 
   addRequest(request) {
+    const timestamp = new Date().getTime();
+
     this.af.collection('requests').add({
       'requester': request.requester,
       'assignee': request.assignee,
       'project': request.project,
       'name': request.name,
-      'description': request.description
+      'description': request.description,
+      'createdAt': timestamp
     });
     this.reset();
   }

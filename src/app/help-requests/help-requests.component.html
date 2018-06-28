@@ -1,11 +1,11 @@
 <div class="request-grid">
-  <div class="request-list">
+  <div class="request-detail">
     <app-help-request-details [requests]="requestCol"
                               (saved)="saveRequest($event)"
                               (cancelled)="cancel($event)">
     </app-help-request-details>
   </div>
-  <div class="request-detail">
+  <div class="request-list">
     <app-help-request-list [requests]="requests"
                            (selected)="selectRequest($event)"
                            (deleted)="deleteRequest($event)">

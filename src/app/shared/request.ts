@@ -4,4 +4,5 @@ export interface Requests {
   project: string;
   name: string;
   description: string;
+  data: any;
 }

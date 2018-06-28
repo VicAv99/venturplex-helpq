@@ -1,8 +1,14 @@
 <div class="request-grid">
   <div class="request-list">
-    <app-help-request-details></app-help-request-details>
+    <app-help-request-details [requests]="requestCol"
+                              (savingPost)="addPost($event)"
+                              (cancellingPost)="cancel($event)">
+    </app-help-request-details>
   </div>
   <div class="request-detail">
-    <app-help-request-list></app-help-request-list>
+    <app-help-request-list [requests]="requests"
+                           (selected)="selectRequest($event)"
+                           (deletingPost)="deletePost($event)">
+    </app-help-request-list>
   </div>
 </div>

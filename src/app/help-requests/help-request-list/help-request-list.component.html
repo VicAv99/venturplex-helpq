@@ -6,25 +6,27 @@
     </mat-card-header>
     <mat-card-content>
       <mat-list>
-        <mat-list-item class="mat-list-option">
-          <h3 matLine>Name: </h3>
-          <h4 matLine>Requesting from: </h4>
+        <mat-list-item class="mat-list-option"
+          *ngFor="let req of requests | async"
+          (click)="selected.emit(req)">
+          <h3 matLine>Name: {{req.data.requester}}</h3>
+          <h4 matLine>Requesting from: {{req.data.assignee}}</h4>
 
           <mat-accordion>
             <mat-expansion-panel matLine>
               <mat-expansion-panel-header>
                 <mat-panel-title>
-                  Project
+                  {{req.data.project}}
                 </mat-panel-title>
                 <mat-panel-description>
-                  name of description
+                  {{req.data.name}}
                 </mat-panel-description>
               </mat-expansion-panel-header>
-              description
+              {{req.data.description}}
             </mat-expansion-panel>
           </mat-accordion>
 
-          <button mat-button color="accent">
+          <button mat-button color="accent" (click)="deletingPost.emit(req.id)">
             <mat-icon matListIcon>clear</mat-icon>
           </button>
         </mat-list-item>

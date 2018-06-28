@@ -4,30 +4,32 @@
       <h2>Request Help</h2>
     </mat-card-title>
   </mat-card-header>
-  <form>
+  <form (submit)="savingPost.emit(selectedRequest)">
     <mat-card-content>
       <mat-form-field>
-        <input matInput placeholder="Your Name" type="text" name="requester">
+        <input matInput placeholder="Your Name"
+        [(ngModel)]="selectedRequest.requester" type="text" name="requester">
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="Request Help From..." type="text" name="assignee">
+        <input matInput placeholder="Request Help From..."
+        [(ngModel)]="selectedRequest.assignee" type="text" name="assignee">
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="Project" type="text" name="project">
+        <input matInput placeholder="Project"
+        [(ngModel)]="selectedRequest.project" type="text" name="project">
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="Name of Description" type="text" name="name">
+        <input matInput placeholder="Name of Description"
+        [(ngModel)]="selectedRequest.name" type="text" name="name">
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="Description" type="text" name="description">
-      </mat-form-field>
-      <mat-form-field>
-        <input matInput placeholder="Created At" type="text" name="createdAt">
+        <input matInput placeholder="Description"
+        [(ngModel)]="selectedRequest.description" type="text" name="description">
       </mat-form-field>
     </mat-card-content>
     <mat-card-actions>
       <button mat-raised-button type="submit" color="primary">Save</button>
-      <button  mat-raised-button type="button" color="accent">Cancel</button>
+      <button  mat-raised-button type="button" color="accent" (click)="cancellingPost.emit(selectedRequest)">Cancel</button>
     </mat-card-actions>
   </form>
 </mat-card>

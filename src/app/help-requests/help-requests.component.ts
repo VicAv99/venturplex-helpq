@@ -30,7 +30,6 @@ export class HelpRequestsComponent implements OnInit {
   }
 
   selectRequest(request) {
-    console.log(request);
     this.requestCol = request;
   }
 
@@ -46,11 +45,13 @@ export class HelpRequestsComponent implements OnInit {
       'name': request.name,
       'description': request.description
     });
+    this.reset();
   }
 
   updateRequest(request) {
     this.individualRequest = this.af.doc(`requests/${request.id}`);
     this.individualRequest.update(request);
+    this.reset();
   }
 
   deleteRequest(id) {

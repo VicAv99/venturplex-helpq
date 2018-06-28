@@ -20,8 +20,8 @@ mat-card-subtitle {
   margin-left: 15px;
 }
 
-mat-expansion-panel {
-  width: 350px;
+mat-accordion {
+  width: 100%;
 }
 
 mat-card-content {

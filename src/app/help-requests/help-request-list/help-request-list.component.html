@@ -5,32 +5,27 @@
       <mat-card-subtitle>Please help us!</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-      <mat-list>
-        <mat-list-item class="mat-list-option"
-          *ngFor="let req of requests | async"
-          (click)="selected.emit(req)">
-          <h3 matLine>Name: {{req.data.requester}}</h3>
-          <h4 matLine>Requesting from: {{req.data.assignee}}</h4>
 
-          <mat-accordion>
-            <mat-expansion-panel matLine>
-              <mat-expansion-panel-header>
-                <mat-panel-title>
-                  {{req.data.project}}
-                </mat-panel-title>
-                <mat-panel-description>
-                  {{req.data.name}}
-                </mat-panel-description>
-              </mat-expansion-panel-header>
-              <markdown>{{req.data.description}}</markdown>
-            </mat-expansion-panel>
-          </mat-accordion>
-
-          <button mat-button color="accent" (click)="deleted.emit(req.id)">
-            <mat-icon matListIcon>clear</mat-icon>
+      <mat-accordion>
+        <mat-expansion-panel *ngFor="let req of requests | async">
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <h4>{{req.data.requester}} | {{req.data.project}} | {{req.data.assignee}}</h4>
+            </mat-panel-title>
+            <mat-panel-description>
+              <h3>{{req.data.name}}</h3>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <markdown>{{req.data.description}}</markdown>
+          <button mat-icon-button (click)='selected.emit(req)'>
+            <mat-icon>create</mat-icon>
           </button>
-        </mat-list-item>
-      </mat-list>
+          <button mat-icon-button color="accent" (click)="deleted.emit(req.id)">
+            <mat-icon>assignment_turned_in</mat-icon>
+          </button>
+        </mat-expansion-panel>
+      </mat-accordion>
+
     </mat-card-content>
   </mat-card>
 </div>

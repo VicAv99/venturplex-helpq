@@ -45,7 +45,7 @@ export class HelpRequestsComponent implements OnInit {
       'requester': request.requester,
       'assignee': request.assignee,
       'project': request.project,
-      'name': request.summary,
+      'summary': request.summary,
       'description': request.description,
       'createdAt': timestamp
     });

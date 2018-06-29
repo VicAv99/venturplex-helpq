@@ -2,7 +2,7 @@ export interface Requests {
   requester: string;
   assignee: string;
   project: string;
-  name: string;
+  summary: string;
   description: string;
   createdAt: any;
   data: any;

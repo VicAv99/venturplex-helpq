@@ -14,17 +14,20 @@ export class HelpRequestsComponent implements OnInit {
   requests: Observable<any[]>;
   individualRequest: AngularFirestoreDocument;
 
-  constructor(private af: AngularFirestore) { }
+  constructor(
+    private af: AngularFirestore
+  ) { }
 
   ngOnInit() {
     this.requestCol = this.af.collection('requests');
-    this.requests = this.requestCol.valueChanges();
     this.requests = this.requestCol.snapshotChanges()
       .pipe(map(actions => {
         return actions.map(a => {
           const data = a.payload.doc.data() as Requests;
           const id = a.payload.doc.id;
           return { id, data };
+        }).sort((a, b) => {
+          return a.data.createdAt - b.data.createdAt;
         });
       }));
   }

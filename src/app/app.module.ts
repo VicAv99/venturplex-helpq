@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppMaterialModule } from './app-material.module';
 import { MarkdownModule } from 'angular2-markdown';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 import { AppComponent } from './app.component';
 import { HelpRequestsComponent } from './help-requests/help-requests.component';
@@ -31,7 +32,8 @@ import { DateTimeFormatPipe } from './date-time-format.pipe';
     ReactiveFormsModule,
     AppRoutingModule,
     AppMaterialModule,
-    MarkdownModule.forRoot()
+    MarkdownModule.forRoot(),
+    AngularFireDatabaseModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

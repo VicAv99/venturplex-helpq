@@ -11,7 +11,9 @@
         <h3 class="time">{{req.data.createdAt | date: 'h:mm a'}}</h3>
       </mat-panel-description>
     </mat-expansion-panel-header>
-    <markdown>{{req.data.description}}</markdown>
+    <div class="markdown-background">
+      <markdown>{{req.data.description}}</markdown>
+    </div>
     <mat-action-row>
       <button mat-button (click)='selected.emit(req)' color="primary">
           <mat-icon>create</mat-icon>

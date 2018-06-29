@@ -1,14 +1,31 @@
 mat-card {
   padding-top: 0;
-  padding-bottom: 5px;
+  padding-bottom: 1px;
+}
+
+mat-card-title {
+  margin-left: -10px;
+}
+
+mat-card-title h2 {
+  margin-bottom: 0;
+}
+
+hr {
+  width: 90%;
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, #ff408062, #ff40809d, #ff4081, #ff40809d, #ff408062);
 }
 
 mat-card-content {
   display: flex;
   flex-direction: column;
+  margin-bottom: 0;
 }
 
-mat-input-container {
-  width: 90%;
-  margin-left: 15px;
+mat-card-actions {
+  margin-left: 1px;
+  margin-bottom: 5px;
+  padding-top: 0;
 }

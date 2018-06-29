@@ -6,12 +6,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppMaterialModule } from './app-material.module';
 import { MarkdownModule } from 'angular2-markdown';
-import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 import { AppComponent } from './app.component';
 import { HelpRequestsComponent } from './help-requests/help-requests.component';
-import { HelpRequestListComponent } from './help-requests/help-request-list/help-request-list.component';
 import { HelpRequestDetailsComponent } from './help-requests/help-request-details/help-request-details.component';
+import { HelpRequestListComponent } from './help-requests/help-request-list/help-request-list.component';
 
 import { firebaseConfig } from '../../files/firebaseconfig';
 import { DateTimeFormatPipe } from './date-time-format.pipe';
@@ -20,8 +19,8 @@ import { DateTimeFormatPipe } from './date-time-format.pipe';
   declarations: [
     AppComponent,
     HelpRequestsComponent,
-    HelpRequestListComponent,
     HelpRequestDetailsComponent,
+    HelpRequestListComponent,
     DateTimeFormatPipe
   ],
   imports: [
@@ -33,7 +32,6 @@ import { DateTimeFormatPipe } from './date-time-format.pipe';
     AppRoutingModule,
     AppMaterialModule,
     MarkdownModule.forRoot(),
-    AngularFireDatabaseModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

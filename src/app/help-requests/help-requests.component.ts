@@ -14,9 +14,7 @@ export class HelpRequestsComponent implements OnInit {
   requests: Observable<any[]>;
   individualRequest: AngularFirestoreDocument;
 
-  constructor(
-    private af: AngularFirestore
-  ) { }
+  constructor(private af: AngularFirestore) { }
 
   ngOnInit() {
     this.requestCol = this.af.collection('requests');

@@ -11,6 +11,10 @@ span {
   font-size: 25px;
 }
 
+[disabled="true"] {
+  pointer-events: none;
+}
+
 .mat-sidenav-container {
   background: whitesmoke;
   flex: 1;

@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'VenturPlex HelpQ';
   links = [
-    { path: '/help-requests', icon: 'loyalty', label: 'HelpQ' }
+    { path: '/help-requests', icon: 'loyalty', label: 'HelpQ', disabled: false },
+    { path: '/', icon: 'accessible', label: 'RestRoomQ', disabled: true }
   ];
 }

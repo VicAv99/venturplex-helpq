@@ -12,7 +12,8 @@
             class="nav-link"
             *ngFor="let link of links"
             [routerLink]="link.path"
-            routerLinkActive="active">
+            routerLinkActive="active"
+            [disabled]="link.disabled">
             <mat-icon>{{link.icon}}</mat-icon>
             {{link.label}}
         </a>

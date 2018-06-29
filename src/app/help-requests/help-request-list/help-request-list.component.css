@@ -1,29 +1,21 @@
-mat-card {
-  padding: 0;
-}
-
-mat-card-header {
-  margin-left: 3%;
-}
-
-mat-card-title h2 {
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-
-mat-card-subtitle h2 {
-  margin-bottom: 0;
-  padding-bottom: 0;
-}
-
-mat-card-subtitle {
-  margin-left: 15px;
-}
-
 mat-accordion {
   width: 100%;
 }
 
-mat-card-content {
-  padding: 15px 10px;
+.mat-expansion-panel-header-title {
+  margin-right: -30%;
+}
+
+.headers-align .mat-expansion-panel-header-title,
+.headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.headers-align .mat-expansion-panel-header-description {
+  justify-content: space-around;
+  align-items: center;
+}
+
+.time {
+  color: #ff4080c0;
 }

@@ -19,7 +19,7 @@
   margin-top: 10px;
 }
 
-@media screen and (max-width: 1055px) {
+@media screen and (max-width: 1470px) {
   .request-detail {
     grid-column: 2/7;
     grid-row: 1;
@@ -31,7 +31,7 @@
   }
 }
 
-@media screen and (max-width: 630px) {
+@media screen and (max-width: 800px) {
   .request-detail {
     grid-column: 1/8;
     grid-row: 1;

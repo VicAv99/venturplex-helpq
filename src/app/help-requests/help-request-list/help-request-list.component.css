@@ -16,6 +16,10 @@ mat-accordion {
   align-items: center;
 }
 
+.headers-align .mat-expansion-panel-header-title {
+  justify-content: flex-start;
+}
+
 .markdown-background {
   padding-top: 10px;
   padding-bottom: 15px;

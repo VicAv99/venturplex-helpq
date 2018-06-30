@@ -84,7 +84,7 @@ export class HelpRequestsComponent implements OnInit {
       requester: ['', Validators.required],
       assignee: ['Jon Garvey', Validators.required],
       project: ['', Validators.required],
-      summary: ['', Validators.required],
+      summary: ['', [Validators.required, Validators.maxLength(20)]],
       description: ['', Validators.required]
     });
   }

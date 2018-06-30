@@ -10,7 +10,7 @@ mat-sidenav {
 span {
   font-size: 25px;
   margin: 0 auto;
-  margin-right: calc(40% - 45px);
+  justify-content: center;
 }
 
 [disabled="true"] {

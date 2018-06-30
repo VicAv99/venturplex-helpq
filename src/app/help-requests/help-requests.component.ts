@@ -43,10 +43,12 @@ export class HelpRequestsComponent implements OnInit {
 
   saveRequest(request) {
     this.form.updateValueAndValidity();
-    const { requester, assignee, project, summary, description } = this.form.getRawValue();
+    if (this.form.valid) {
+      const { requester, assignee, project, summary, description } = this.form.getRawValue();
 
-    request.id ? this.updateRequest(request, { requester, assignee, project, summary, description }) :
-      this.addRequest({ requester, assignee, project, summary, description });
+      request.id ? this.updateRequest(request, { requester, assignee, project, summary, description }) :
+        this.addRequest({ requester, assignee, project, summary, description });
+    }
   }
 
   addRequest(request) {

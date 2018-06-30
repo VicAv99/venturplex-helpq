@@ -5,31 +5,31 @@
       <hr align="left">
     </mat-card-title>
   </mat-card-header>
-  <form (submit)="saved.emit(selectedRequest)">
+  <form (submit)="saved.emit(selectedRequest)" [formGroup]="group">
     <mat-card-content>
       <mat-form-field>
         <input matInput placeholder="Your Name" required
-        [(ngModel)]="selectedRequest.requester" type="text" name="requester">
+        formControlName="requester" type="text" name="requester">
       </mat-form-field>
       <mat-form-field>
         <input matInput placeholder="Request Help From..." required
-        [(ngModel)]="selectedRequest.assignee" type="text" name="assignee">
+        formControlName="assignee" type="text" name="assignee">
       </mat-form-field>
       <mat-form-field>
         <input matInput placeholder="Project" required
-        [(ngModel)]="selectedRequest.project" type="text" name="project">
+        formControlName="project" type="text" name="project">
       </mat-form-field>
       <mat-form-field>
         <input matInput placeholder="Summary" required
-        [(ngModel)]="selectedRequest.summary" type="text" name="summary">
+        formControlName="summary" type="text" name="summary">
       </mat-form-field>
       <mat-form-field>
         <textarea matInput placeholder="Description" required
-        [(ngModel)]="selectedRequest.description" type="text" name="description"></textarea>
+        formControlName="description" type="text" name="description"></textarea>
       </mat-form-field>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button type="submit" color="primary">Save</button>
+      <button mat-raised-button type="submit" color="primary" [disabled]="group.invalid">Save</button>
       <button  mat-raised-button type="button" color="accent" (click)="cancelled.emit(selectedRequest)">Cancel</button>
     </mat-card-actions>
   </form>

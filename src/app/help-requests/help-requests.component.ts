@@ -3,6 +3,7 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { Observable } from 'rxjs';
 import { Requests } from '../shared/request';
 import { map } from 'rxjs/operators';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-help-requests',
@@ -13,8 +14,12 @@ export class HelpRequestsComponent implements OnInit {
   requestCol: AngularFirestoreCollection<Requests>;
   requests: Observable<any[]>;
   individualRequest: AngularFirestoreDocument;
+  form: FormGroup;
 
-  constructor(private af: AngularFirestore) { }
+  constructor(
+    private af: AngularFirestore,
+    private fb: FormBuilder
+  ) { }
 
   ngOnInit() {
     this.requestCol = this.af.collection('requests');
@@ -28,14 +33,20 @@ export class HelpRequestsComponent implements OnInit {
           return a.data.createdAt - b.data.createdAt;
         });
       }));
+    this.initForm();
   }
 
   selectRequest(request) {
+    this.form.patchValue(request.data);
     this.requestCol = request;
   }
 
   saveRequest(request) {
-    request.id ? this.updateRequest(request) : this.addRequest(request);
+    this.form.updateValueAndValidity();
+    const { requester, assignee, project, summary, description } = this.form.getRawValue();
+
+    request.id ? this.updateRequest(request, { requester, assignee, project, summary, description }) :
+      this.addRequest({ requester, assignee, project, summary, description });
   }
 
   addRequest(request) {
@@ -52,9 +63,9 @@ export class HelpRequestsComponent implements OnInit {
     this.reset();
   }
 
-  updateRequest(request) {
+  updateRequest(request, reqObj) {
     this.individualRequest = this.af.doc(`requests/${request.id}`);
-    this.individualRequest.update(request);
+    this.individualRequest.update(reqObj);
     this.reset();
   }
 
@@ -62,18 +73,18 @@ export class HelpRequestsComponent implements OnInit {
     this.af.doc(`requests/${id}`).delete();
   }
 
-  cancel(request) {
-    this.reset();
+  reset() {
+    this.form.reset();
   }
 
-  reset() {
-    this.requestCol = ({
-      requester: '',
-      assignee: '',
-      project: '',
-      name: '',
-      description: ''
-    } as null);
+  initForm() {
+    this.form = this.fb.group({
+      requester: ['', Validators.required],
+      assignee: ['Jon Garvey', Validators.required],
+      project: ['', Validators.required],
+      summary: ['', Validators.required],
+      description: ['', Validators.required]
+    });
   }
 
 }

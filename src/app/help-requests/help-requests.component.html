@@ -1,8 +1,9 @@
 <div class="request-grid">
   <div class="request-detail">
     <app-help-request-details [requests]="requestCol"
+                              [group]="form"
                               (saved)="saveRequest($event)"
-                              (cancelled)="cancel($event)">
+                              (cancelled)="reset($event)">
     </app-help-request-details>
   </div>
   <div class="request-list">

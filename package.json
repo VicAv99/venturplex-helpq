@@ -4,10 +4,11 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build && cp ./dist/venturPlexHelpQ/index.html ./dist/venturPlexHelpQ/200.html && surge ./dist/venturPlexHelpQ https://venturplex-helpQ.surge.sh/",
+    "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "deploy": "ng build && cp ./dist/venturPlexHelpQ/index.html ./dist/venturPlexHelpQ/200.html && surge ./dist/venturPlexHelpQ https://venturplex-helpq.surge.sh/"
   },
   "private": true,
   "dependencies": {

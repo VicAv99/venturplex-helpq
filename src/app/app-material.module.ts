@@ -20,7 +20,8 @@ import {
   MatMenuModule,
   MatDividerModule,
   MatButtonToggleModule,
-  MatStepperModule
+  MatStepperModule,
+  MatAutocompleteModule
 } from '@angular/material';
 
 @NgModule({
@@ -45,7 +46,8 @@ import {
     MatMenuModule,
     MatDividerModule,
     MatButtonToggleModule,
-    MatStepperModule
+    MatStepperModule,
+    MatAutocompleteModule
   ],
   exports: [
     BrowserAnimationsModule,
@@ -67,7 +69,8 @@ import {
     MatMenuModule,
     MatDividerModule,
     MatButtonToggleModule,
-    MatStepperModule
+    MatStepperModule,
+    MatAutocompleteModule
   ],
   declarations: []
 })

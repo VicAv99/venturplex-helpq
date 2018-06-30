@@ -8,16 +8,31 @@
   <form (submit)="saved.emit(selectedRequest)" [formGroup]="group">
     <mat-card-content>
       <mat-form-field>
-        <input matInput placeholder="Your Name" required
+        <input matInput placeholder="Your Name" required [matAutocomplete]="eauto"
         formControlName="requester" type="text" name="requester">
+        <mat-autocomplete #eauto="matAutocomplete">
+          <mat-option *ngFor="let e of employees" [value]="e">
+            {{e}}
+          </mat-option>
+        </mat-autocomplete>
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="Request Help From..." required
+        <input matInput placeholder="Request Help From..." required [matAutocomplete]="eauto2"
         formControlName="assignee" type="text" name="assignee">
+        <mat-autocomplete #eauto2="matAutocomplete">
+          <mat-option *ngFor="let e of employees" [value]="e">
+            {{e}}
+          </mat-option>
+        </mat-autocomplete>
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="Project" required
+        <input matInput placeholder="Project" required [matAutocomplete]="pauto"
         formControlName="project" type="text" name="project">
+        <mat-autocomplete #pauto="matAutocomplete">
+          <mat-option *ngFor="let p of projects" [value]="p">
+            {{p}}
+          </mat-option>
+        </mat-autocomplete>
       </mat-form-field>
       <mat-form-field>
         <input matInput placeholder="Summary" required maxlength="21"

@@ -1,6 +1,6 @@
 import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { Requests } from '../../shared/request';
-import { FormGroup, FormGroupDirective, FormControl } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-help-request-details',
@@ -8,16 +8,10 @@ import { FormGroup, FormGroupDirective, FormControl } from '@angular/forms';
   styleUrls: ['./help-request-details.component.css']
 })
 export class HelpRequestDetailsComponent {
-  selectedRequest: Requests;
+  @Input() selectedRequest: Requests;
+  @Input() group: FormGroup;
   @Output() saved = new EventEmitter();
   @Output() cancelled = new EventEmitter();
-
-  @Input() group: FormGroup;
-  @Input() set requests(value: Requests) {
-    this.selectedRequest = Object.assign({}, value.data, value);
-  }
-
-  newControl = new FormControl();
 
   employees = [
     'Victor',

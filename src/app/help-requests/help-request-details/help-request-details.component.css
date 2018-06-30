@@ -29,3 +29,7 @@ mat-card-actions {
   margin-bottom: 5px;
   padding-top: 0;
 }
+
+.not-valid {
+  color: #f44336;
+}

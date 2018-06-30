@@ -20,11 +20,14 @@
         formControlName="project" type="text" name="project">
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="Summary" required maxlength="20"
+        <input matInput placeholder="Summary" required maxlength="21"
         formControlName="summary" type="text" name="summary">
       </mat-form-field>
+      <div class="not-valid" *ngIf="!group.pristine && group.get('summary').hasError('maxlength')">
+        too many letter broski! Please get rid of a letter.
+      </div>
       <mat-form-field>
-        <textarea matInput placeholder="Description" required
+        <textarea matInput placeholder="Description (Use Markdown)" required
         formControlName="description" type="text" name="description"></textarea>
       </mat-form-field>
     </mat-card-content>

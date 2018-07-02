@@ -14,6 +14,7 @@ export class HelpRequestDetailsComponent {
   @Output() cancelled = new EventEmitter();
 
   employees = [
+    'Jon Garvey',
     'Victor',
     'Chris',
     'Micah',

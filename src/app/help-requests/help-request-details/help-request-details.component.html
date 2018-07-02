@@ -39,7 +39,7 @@
         formControlName="summary" type="text" name="summary">
       </mat-form-field>
       <div class="not-valid" *ngIf="!group.pristine && group.get('summary').hasError('maxlength')">
-        too many letter broski! Please get rid of a letter.
+        Too many letters broski! Please get rid of a letter.
       </div>
       <mat-form-field>
         <textarea matInput placeholder="Description (Use Markdown)" required

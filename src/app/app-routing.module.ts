@@ -6,7 +6,7 @@ import { AuthGuard } from './core/auth.guard';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 
 const routes: Routes = [
-  { path: '', component: HelpRequestsComponent },
+  { path: '', component: UserProfileComponent },
   { path: 'user-profile', component: UserProfileComponent},
   { path: 'help-requests', component: HelpRequestsComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: '', pathMatch: 'full' }

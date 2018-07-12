@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { AuthService } from '../shared/auth.service';
+import { AuthService } from './auth.service';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AuthGuard } from './auth.guard';
+import { MessagingService } from './messaging.service';
 
 @NgModule({
   imports: [
@@ -13,6 +14,10 @@ import { AuthGuard } from './auth.guard';
     AngularFirestoreModule
   ],
   declarations: [],
-  providers: [AuthService, AuthGuard]
+  providers: [
+    AuthService,
+    MessagingService,
+    AuthGuard
+  ]
 })
 export class CoreModule { }

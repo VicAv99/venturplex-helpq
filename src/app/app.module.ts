@@ -15,9 +15,8 @@ import { HelpRequestsComponent } from './help-requests/help-requests.component';
 import { HelpRequestDetailsComponent } from './help-requests/help-request-details/help-request-details.component';
 import { HelpRequestListComponent } from './help-requests/help-request-list/help-request-list.component';
 
-import { firebaseConfig } from '../../files/firebaseconfig';
+import { firebaseConfig } from 'files/firebaseconfig';
 import { DateTimeFormatPipe } from './date-time-format.pipe';
-import { MessagingService } from './shared/messaging.service';
 import { CoreModule } from './core/core.module';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 
@@ -43,7 +42,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     MarkdownModule.forRoot(),
     CoreModule
   ],
-  providers: [MessagingService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

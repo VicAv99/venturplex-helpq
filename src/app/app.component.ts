@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from '../../node_modules/angularfire2/auth';
+import { AngularFireAuth } from 'angularfire2/auth';
 // import { auth } from '../../node_modules/firebase';
-import { AuthService } from './shared/auth.service';
+import { AuthService } from './core/auth.service';
 
 @Component({
   selector: 'app-root',

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
-// import { auth } from '../../node_modules/firebase';
 import { AuthService } from './core/auth.service';
+import { take, filter } from '../../node_modules/rxjs/operators';
+import { MessagingService } from './core/messaging.service';
 
 @Component({
   selector: 'app-root',
@@ -16,9 +17,26 @@ export class AppComponent implements OnInit {
     { path: '/', icon: 'accessible', label: 'RestRoomQ', disabled: true }
   ];
 
-  constructor(public afAuth: AngularFireAuth, public auth: AuthService) { }
+  constructor(
+    public afAuth: AngularFireAuth,
+    public auth: AuthService,
+    public msgService: MessagingService
+  ) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.auth.user
+      .pipe(
+      filter(user => !!user),
+      take(1)
+      )
+      .subscribe(user => {
+        if (user) {
+          this.msgService.getPermission(user);
+          this.msgService.monitorRefresh(user);
+          this.msgService.receiveMessages();
+        }
+      });
+   }
 
   login() {
     this.auth.googleLogin();

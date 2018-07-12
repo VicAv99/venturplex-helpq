@@ -40,10 +40,8 @@ export class MessagingService {
   }
 
   private saveToken(user, token): void {
-
     const currentTokens = user.fcmTokens || { };
 
-    // If token does not exist in firestore, update db
     if (!currentTokens[token]) {
       const userRef = this.af.collection('users').doc(user.uid);
       const tokens = { ...currentTokens, [token]: true };
@@ -56,6 +54,5 @@ export class MessagingService {
      console.log('Message received. ', payload);
      this.messageSource.next(payload);
    });
-
   }
 }

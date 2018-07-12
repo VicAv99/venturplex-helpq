@@ -4,7 +4,7 @@
   </button>
   <span>{{title}}</span>
 
-  <div *ngIf="this.auth.user | async as user">
+  <div *ngIf="auth.user | async as user">
     <span class="name">{{user.displayName}}</span>
   </div>
 
@@ -14,14 +14,14 @@
     <mat-sidenav #sidenav mode="over" class="mat-elevation-z5">
       <nav>
         <a mat-button
-            color="accent"
-            class="nav-link"
-            *ngFor="let link of links"
-            [routerLink]="link.path"
-            routerLinkActive="active"
-            [disabled]="link.disabled">
-            <mat-icon>{{link.icon}}</mat-icon>
-            {{link.label}}
+           color="accent"
+           class="nav-link"
+           *ngFor="let link of links"
+           [routerLink]="link.path"
+           routerLinkActive="active"
+           [disabled]="link.disabled">
+           <mat-icon>{{link.icon}}</mat-icon>
+           {{link.label}}
         </a>
       </nav>
     </mat-sidenav>

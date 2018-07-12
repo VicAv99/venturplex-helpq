@@ -1,6 +1,8 @@
 import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { Requests } from '../../shared/request';
 import { FormGroup } from '@angular/forms';
+import { AuthService } from '../../core/auth.service';
+import { User } from '../../../../node_modules/firebase';
 
 @Component({
   selector: 'app-help-request-details',
@@ -10,20 +12,11 @@ import { FormGroup } from '@angular/forms';
 export class HelpRequestDetailsComponent {
   @Input() selectedRequest: Requests;
   @Input() group: FormGroup;
+  @Input() userRef: User;
   @Output() saved = new EventEmitter();
   @Output() cancelled = new EventEmitter();
 
-  employees = [
-    'Jon Garvey',
-    'Victor',
-    'Chris',
-    'Micah',
-    'Josh',
-    'Blaise',
-    'Yoshi',
-    'Kenny',
-    'Elias'
-  ];
+  constructor(public auth: AuthService) {}
 
   projects = [
     'All Sports',
@@ -35,4 +28,5 @@ export class HelpRequestDetailsComponent {
     'Master Detail - Intern',
     'Other'
   ];
+
 }

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Requests } from '../shared/request';
 import { map } from 'rxjs/operators';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { User } from '../../../node_modules/firebase';
 
 @Component({
   selector: 'app-help-requests',
@@ -15,6 +16,8 @@ export class HelpRequestsComponent implements OnInit {
   requests: Observable<any[]>;
   individualRequest: AngularFirestoreDocument;
   form: FormGroup;
+  userCol: AngularFirestoreCollection<User>;
+  userRef: Observable<any[]>;
 
   constructor(
     private af: AngularFirestore,
@@ -24,13 +27,21 @@ export class HelpRequestsComponent implements OnInit {
   ngOnInit() {
     this.requestCol = this.af.collection('requests');
     this.requests = this.requestCol.snapshotChanges()
-      .pipe(map(actions => {
-        return actions.map(a => {
-          const data = a.payload.doc.data() as Requests;
-          const id = a.payload.doc.id;
-          return { id, data };
-        }).sort((a, b) => {
-          return a.data.createdAt - b.data.createdAt;
+    .pipe(map(actions => {
+      return actions.map(a => {
+        const data = a.payload.doc.data() as Requests;
+        const id = a.payload.doc.id;
+        return { id, data };
+      }).sort((a, b) => {
+        return a.data.createdAt - b.data.createdAt;
+      });
+    }));
+    this.userCol = this.af.collection('users');
+    this.userRef = this.userCol.snapshotChanges()
+      .pipe(map(res => {
+        return res.map(b => {
+          const users = b.payload.doc.data();
+          return { users };
         });
       }));
     this.initForm();

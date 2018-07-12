@@ -8,20 +8,17 @@
   <form (submit)="saved.emit(selectedRequest)" [formGroup]="group">
     <mat-card-content>
       <mat-form-field>
-        <input matInput placeholder="Your Name" required [matAutocomplete]="eauto"
+        <div *ngIf="auth.user | async as user">
+          <input matInput placeholder="Your Name" required [value]="user.displayName"
         formControlName="requester" type="text" name="requester">
-        <mat-autocomplete #eauto="matAutocomplete">
-          <mat-option *ngFor="let e of employees" [value]="e">
-            {{e}}
-          </mat-option>
-        </mat-autocomplete>
+        </div>
       </mat-form-field>
       <mat-form-field>
         <input matInput placeholder="Request Help From..." required [matAutocomplete]="eauto2"
         formControlName="assignee" type="text" name="assignee">
         <mat-autocomplete #eauto2="matAutocomplete">
-          <mat-option *ngFor="let e of employees" [value]="e">
-            {{e}}
+          <mat-option *ngFor="let user of userRef | async" [value]="user.users.displayName">
+            {{user.users.displayName}}
           </mat-option>
         </mat-autocomplete>
       </mat-form-field>

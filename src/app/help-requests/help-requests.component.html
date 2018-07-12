@@ -1,6 +1,7 @@
 <div class="request-grid">
   <div class="request-detail">
     <app-help-request-details [selectedRequest]="requestCol"
+                              [userRef]="userRef"
                               [group]="form"
                               (saved)="saveRequest($event)"
                               (cancelled)="reset($event)">

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '../../node_modules/angularfire2/auth';
-import { auth } from '../../node_modules/firebase';
+// import { auth } from '../../node_modules/firebase';
+import { AuthService } from './shared/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -10,22 +11,21 @@ import { auth } from '../../node_modules/firebase';
 export class AppComponent implements OnInit {
   title = 'VenturPlex HelpQ';
   links = [
+    { path: '/user-profile', icon: 'person', label: 'User Profile', disabled: false },
     { path: '/help-requests', icon: 'loyalty', label: 'HelpQ', disabled: false },
     { path: '/', icon: 'accessible', label: 'RestRoomQ', disabled: true }
   ];
 
-  constructor(public afAuth: AngularFireAuth) { }
+  constructor(public afAuth: AngularFireAuth, public auth: AuthService) { }
 
-  ngOnInit() {  }
+  ngOnInit() { }
 
   login() {
-    this.afAuth.auth.signInWithPopup(new auth.GoogleAuthProvider())
-      .then(wait => location.reload());
+    this.auth.googleLogin();
   }
 
   logout() {
-    this.afAuth.auth.signOut();
-    location.reload();
+    this.auth.signOut();
   }
 
 }

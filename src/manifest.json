@@ -1,0 +1,6 @@
+{
+  "short_name": "HelpQ",
+  "name": "VenturPlex HelpQ App",
+  "start_url": "/help-requests",
+  "gcm_sender_id": "103953800507"
+}

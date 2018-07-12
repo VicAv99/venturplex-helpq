@@ -17,6 +17,9 @@ import { HelpRequestListComponent } from './help-requests/help-request-list/help
 
 import { firebaseConfig } from '../../files/firebaseconfig';
 import { DateTimeFormatPipe } from './date-time-format.pipe';
+import { MessagingService } from './shared/messaging.service';
+import { CoreModule } from './core/core.module';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,8 @@ import { DateTimeFormatPipe } from './date-time-format.pipe';
     HelpRequestsComponent,
     HelpRequestDetailsComponent,
     HelpRequestListComponent,
-    DateTimeFormatPipe
+    DateTimeFormatPipe,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -37,8 +41,9 @@ import { DateTimeFormatPipe } from './date-time-format.pipe';
     AppRoutingModule,
     AppMaterialModule,
     MarkdownModule.forRoot(),
+    CoreModule
   ],
-  providers: [],
+  providers: [MessagingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -31,8 +31,10 @@
               <h1>Howdy, {{ user.displayName }}</h1>
             </mat-card-title>
           </mat-card-header>
+          <mat-divider></mat-divider>
           <mat-card-content>
-            <p>UID: {{ user.uid }}</p>
+            <p mat-line><strong>UID:</strong> {{ user.uid }}</p>
+            <p mat-line><strong>Email:</strong> {{ user.email }}</p>
           </mat-card-content>
           <mat-card-actions>
             <button routerLink="/help-requests" mat-raised-button color="primary">

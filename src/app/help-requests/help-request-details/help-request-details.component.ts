@@ -22,6 +22,7 @@ export class HelpRequestDetailsComponent {
     'Blaise',
     'Yoshi',
     'Kenny',
+    'Elias'
   ];
 
   projects = [
@@ -29,6 +30,9 @@ export class HelpRequestDetailsComponent {
     'GOings',
     'Hilton',
     'American Airlines',
-    'Transaction Factory'
+    'Transaction Factory',
+    'Level Up',
+    'Master Detail - Intern',
+    'Other'
   ];
 }

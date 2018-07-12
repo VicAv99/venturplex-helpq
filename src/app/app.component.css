@@ -13,6 +13,12 @@ span {
   justify-content: center;
 }
 
+span.name {
+  /* display: flex; */
+  padding-top: 5px;
+  margin-right: 10px;
+}
+
 [disabled="true"] {
   pointer-events: none;
 }

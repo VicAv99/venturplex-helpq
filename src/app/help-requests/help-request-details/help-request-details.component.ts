@@ -1,7 +1,6 @@
 import { Component, Input, EventEmitter, Output } from '@angular/core';
 import { Requests } from '../../shared/request';
 import { FormGroup } from '@angular/forms';
-import { AuthService } from '../../core/auth.service';
 import { User } from '../../../../node_modules/firebase';
 
 @Component({
@@ -15,8 +14,6 @@ export class HelpRequestDetailsComponent {
   @Input() userRef: User;
   @Output() saved = new EventEmitter();
   @Output() cancelled = new EventEmitter();
-
-  constructor(public auth: AuthService) {}
 
   projects = [
     'All Sports',

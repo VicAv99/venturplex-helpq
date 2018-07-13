@@ -1,7 +1,8 @@
 import { Component, Input, EventEmitter, Output } from '@angular/core';
-import { Requests } from '../../shared/request';
 import { FormGroup } from '@angular/forms';
-import { User } from '../../../../node_modules/firebase';
+
+import { User } from '../../shared/user';
+import { Requests } from '../../shared/request';
 
 @Component({
   selector: 'app-help-request-details',

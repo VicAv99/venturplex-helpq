@@ -1,16 +1,18 @@
 <div class="request-grid">
   <div class="request-detail">
-    <app-help-request-details [selectedRequest]="requestCol"
-                              [userRef]="userRef"
-                              [group]="form"
-                              (saved)="saveRequest($event)"
-                              (cancelled)="reset($event)">
+    <app-help-request-details
+        [selectedRequest]="requestCol"
+        [userRef]="userRef"
+        [group]="form"
+        (saved)="saveRequest($event)"
+        (cancelled)="reset($event)">
     </app-help-request-details>
   </div>
   <div class="request-list">
-    <app-help-request-list [requests]="requests"
-                           (selected)="selectRequest($event)"
-                           (deleted)="deleteRequest($event)">
+    <app-help-request-list
+        [requests]="requests"
+        (selected)="selectRequest($event)"
+        (deleted)="deleteRequest($event)">
     </app-help-request-list>
   </div>
 </div>

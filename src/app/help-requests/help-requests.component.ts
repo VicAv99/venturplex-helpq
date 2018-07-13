@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
-import { Observable } from 'rxjs';
-import { Requests } from '../shared/request';
-import { map } from 'rxjs/operators';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { User } from '../../../node_modules/firebase';
-import { skip, take, tap } from 'rxjs/internal/operators';
+
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
+import { map, skip, tap } from 'rxjs/internal/operators';
+import { Observable } from 'rxjs';
+
+import { Requests } from '../shared/request';
+import { User } from '../shared/user';
 
 @Component({
   selector: 'app-help-requests',

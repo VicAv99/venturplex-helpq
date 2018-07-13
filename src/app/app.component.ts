@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AuthService } from './core/auth.service';
+
 import { take, filter } from '../../node_modules/rxjs/operators';
+
 import { MessagingService } from './core/messaging.service';
 
 @Component({
@@ -19,12 +22,12 @@ export class AppComponent implements OnInit {
 
   constructor(
     public afAuth: AngularFireAuth,
-    public auth: AuthService,
+    public authService: AuthService,
     public msgService: MessagingService
   ) { }
 
   ngOnInit() {
-    this.auth.user
+    this.authService.user
       .pipe(
       filter(user => !!user),
       take(1)
@@ -39,11 +42,11 @@ export class AppComponent implements OnInit {
    }
 
   login() {
-    this.auth.googleLogin();
+    this.authService.googleLogin();
   }
 
   logout() {
-    this.auth.signOut();
+    this.authService.signOut();
   }
 
 }

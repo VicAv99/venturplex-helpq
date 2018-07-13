@@ -5,6 +5,7 @@ import { Requests } from '../shared/request';
 import { map } from 'rxjs/operators';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { User } from '../../../node_modules/firebase';
+import { skip, take, tap } from 'rxjs/internal/operators';
 
 @Component({
   selector: 'app-help-requests',
@@ -26,16 +27,24 @@ export class HelpRequestsComponent implements OnInit {
 
   ngOnInit() {
     this.requestCol = this.af.collection('requests');
+    this.requestCol.stateChanges()
+      .pipe(
+        skip(1),
+        tap(change => this.notify(change))
+      ).subscribe();
+
     this.requests = this.requestCol.snapshotChanges()
-    .pipe(map(actions => {
-      return actions.map(a => {
-        const data = a.payload.doc.data() as Requests;
-        const id = a.payload.doc.id;
-        return { id, data };
-      }).sort((a, b) => {
-        return a.data.createdAt - b.data.createdAt;
-      });
-    }));
+    .pipe(
+      map(actions => {
+        return actions.map(a => {
+          const data = a.payload.doc.data() as Requests;
+          const id = a.payload.doc.id;
+          return { id, data };
+        }).sort((a, b) => {
+          return a.data.createdAt - b.data.createdAt;
+        });
+      })
+    );
     this.userCol = this.af.collection('users');
     this.userRef = this.userCol.snapshotChanges()
       .pipe(map(res => {
@@ -87,6 +96,23 @@ export class HelpRequestsComponent implements OnInit {
 
   reset() {
     this.form.reset();
+    this.requestCol = {} as any;
+  }
+
+  notify(change) {
+    const data = change[0].payload.doc.data();
+    const message = `${data.requester} ${change[0].type} "${data.summary}"`;
+    if (!('Notification' in window)) {
+      alert('This browser does not support desktop notification');
+    } else if ((<any>Notification).permission === 'granted') {
+      const notification = new Notification(message);
+    } else if ((<any>Notification).permission !== 'denied') {
+      Notification.requestPermission(permission => {
+        if (permission === 'granted') {
+          const notification = new Notification(message);
+        }
+      });
+    }
   }
 
   initForm() {

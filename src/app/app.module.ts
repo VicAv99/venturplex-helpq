@@ -15,9 +15,9 @@ import { HelpRequestsComponent } from './help-requests/help-requests.component';
 import { HelpRequestDetailsComponent } from './help-requests/help-request-details/help-request-details.component';
 import { HelpRequestListComponent } from './help-requests/help-request-list/help-request-list.component';
 
-import { firebaseConfig } from 'files/firebaseconfig';
 import { CoreModule } from './core/core.module';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -29,7 +29,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
   ],
   imports: [
     BrowserModule,
-    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireDatabaseModule,
     AngularFireAuthModule,

@@ -2,7 +2,7 @@
   <mat-expansion-panel *ngFor="let req of requests | async">
     <mat-expansion-panel-header>
       <mat-panel-title>
-        <h3>{{req.data.requester}}</h3>
+        <h3 class="turncate">{{req.data.requester}}</h3>
       </mat-panel-title>
       <mat-panel-description>
         <h3>{{req.data.project}}</h3>

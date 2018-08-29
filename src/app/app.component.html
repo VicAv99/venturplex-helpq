@@ -6,6 +6,7 @@
 
   <div *ngIf="authService.user | async as user">
     <span class="name">{{user.displayName}}</span>
+    <button mat-raised-button color="accent" (click)="logout()">Logout</button>
   </div>
 
 </mat-toolbar>

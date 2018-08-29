@@ -3,11 +3,9 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 import { HelpRequestsComponent } from './help-requests/help-requests.component';
 import { AuthGuard } from './core/auth.guard';
-import { UserProfileComponent } from './user-profile/user-profile.component';
 
 const routes: Routes = [
-  { path: '', component: UserProfileComponent },
-  { path: 'user-profile', component: UserProfileComponent},
+  { path: '', component: HelpRequestsComponent },
   { path: 'help-requests', component: HelpRequestsComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];

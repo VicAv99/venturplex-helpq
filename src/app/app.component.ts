@@ -15,7 +15,6 @@ import { MessagingService } from './core/messaging.service';
 export class AppComponent implements OnInit {
   title = 'VenturPlex HelpQ';
   links = [
-    { path: '/user-profile', icon: 'person', label: 'User Profile', disabled: false },
     { path: '/help-requests', icon: 'loyalty', label: 'HelpQ', disabled: false },
     { path: '/', icon: 'accessible', label: 'RestRoomQ', disabled: true }
   ];

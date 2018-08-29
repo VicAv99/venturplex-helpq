@@ -7,6 +7,7 @@ import { Observable } from 'rxjs';
 
 import { Requests } from '../shared/request';
 import { User } from '../shared/user';
+import { AuthService } from '../core/auth.service';
 
 @Component({
   selector: 'app-help-requests',
@@ -23,7 +24,8 @@ export class HelpRequestsComponent implements OnInit {
 
   constructor(
     private af: AngularFirestore,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    public authService: AuthService
   ) { }
 
   ngOnInit() {

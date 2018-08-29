@@ -1,18 +1,45 @@
-<div class="request-grid">
-  <div class="request-detail">
-    <app-help-request-details
-        [selectedRequest]="requestCol"
-        [userRef]="userRef"
-        [group]="form"
-        (saved)="saveRequest($event)"
-        (cancelled)="reset($event)">
-    </app-help-request-details>
+<div *ngIf="authService.user | async; then authenticated else guest"></div>
+
+<ng-template #guest>
+  <div class="landing-grid">
+    <div class="landing-card">
+      <mat-card>
+        <mat-card-header>
+          <mat-card-title>
+            <h1>Howdy, GUEST</h1>
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <p>Login to get started...</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button (click)="authService.googleLogin()" mat-raised-button color="accent">
+            Login with Google
+            <mat-icon>g_translate</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
   </div>
-  <div class="request-list">
-    <app-help-request-list
-        [requests]="requests"
-        (selected)="selectRequest($event)"
-        (deleted)="deleteRequest($event)">
-    </app-help-request-list>
+</ng-template>
+
+<ng-template #authenticated>
+  <div class="request-grid">
+    <div class="request-detail">
+      <app-help-request-details
+          [selectedRequest]="requestCol"
+          [userRef]="userRef"
+          [group]="form"
+          (saved)="saveRequest($event)"
+          (cancelled)="reset($event)">
+      </app-help-request-details>
+    </div>
+    <div class="request-list">
+      <app-help-request-list
+          [requests]="requests"
+          (selected)="selectRequest($event)"
+          (deleted)="deleteRequest($event)">
+      </app-help-request-list>
+    </div>
   </div>
-</div>
+</ng-template>

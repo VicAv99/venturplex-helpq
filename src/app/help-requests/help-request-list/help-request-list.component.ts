@@ -10,18 +10,21 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./help-request-list.component.css']
 })
 export class HelpRequestListComponent implements OnChanges {
+  step: string;
+  requestLink: string;
   @Input() requests: Requests[];
   @Output() selected = new EventEmitter();
   @Output() deleted = new EventEmitter();
   @ViewChild('expansionPanel') expansionPanel;
-  step;
 
   constructor(private route: ActivatedRoute) {}
 
   ngOnChanges() {
     this.route.params.pipe(map(params => params['id']))
       .subscribe(id => {
-      this.step = id;
+        this.step = id;
+        this.requestLink =
+          `${window.location.protocol}//${window.location.host}/help-requests/`;
     });
   }
 }

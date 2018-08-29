@@ -16,10 +16,17 @@
       <markdown>{{req.data.description}}</markdown>
     </div>
     <mat-action-row>
+      <mat-form-field>
+        <input matInput type="text" [value]="requestLink + req.id" #itemLink>
+      </mat-form-field>
+      <button mat-stroked-button color="primary"
+              [ngxClipboard]="itemLink">
+        Copy!
+      </button>
       <button mat-button (click)='selected.emit(req)' color="primary">
           <mat-icon>create</mat-icon>
         </button>
-        <button mat-button (click)="deleted.emit(req.id)" color="accent">
+        <button mat-button color="accent">
           <mat-icon>assignment_turned_in</mat-icon>
         </button>
     </mat-action-row>

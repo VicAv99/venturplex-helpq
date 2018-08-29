@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppMaterialModule } from './app-material.module';
 import { MarkdownModule } from 'angular2-markdown';
+import { ClipboardModule } from 'ngx-clipboard';
 
 import { AppComponent } from './app.component';
 import { HelpRequestsComponent } from './help-requests/help-requests.component';
@@ -16,7 +17,6 @@ import { HelpRequestDetailsComponent } from './help-requests/help-request-detail
 import { HelpRequestListComponent } from './help-requests/help-request-list/help-request-list.component';
 
 import { CoreModule } from './core/core.module';
-import { UserProfileComponent } from './user-profile/user-profile.component';
 import { environment } from '../environments/environment';
 
 @NgModule({
@@ -24,8 +24,7 @@ import { environment } from '../environments/environment';
     AppComponent,
     HelpRequestsComponent,
     HelpRequestDetailsComponent,
-    HelpRequestListComponent,
-    UserProfileComponent
+    HelpRequestListComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +37,8 @@ import { environment } from '../environments/environment';
     AppRoutingModule,
     AppMaterialModule,
     MarkdownModule.forRoot(),
-    CoreModule
+    CoreModule,
+    ClipboardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

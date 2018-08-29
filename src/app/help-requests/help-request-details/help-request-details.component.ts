@@ -22,8 +22,7 @@ export class HelpRequestDetailsComponent {
     'Hilton',
     'American Airlines',
     'Transaction Factory',
-    'Level Up',
-    'Master Detail - Intern',
+    'Level Up - API\'s',
     'Other'
   ];
 

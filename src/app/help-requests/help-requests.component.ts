@@ -21,6 +21,7 @@ export class HelpRequestsComponent implements OnInit {
   form: FormGroup;
   userCol: AngularFirestoreCollection<User>;
   userRef: Observable<any[]>;
+  userDisplayName: string;
 
   constructor(
     private af: AngularFirestore,
@@ -57,6 +58,7 @@ export class HelpRequestsComponent implements OnInit {
         });
       }));
     this.initForm();
+    this.authService.user.subscribe(res => this.userDisplayName = res.displayName);
   }
 
   selectRequest(request) {
@@ -104,7 +106,7 @@ export class HelpRequestsComponent implements OnInit {
 
   notify(change) {
     const data = change[0].payload.doc.data();
-    const message = `${data.requester} ${change[0].type} "${data.summary}"`;
+    const message = `${this.userDisplayName} ${change[0].type} "${data.summary}"`;
     if (!('Notification' in window)) {
       alert('This browser does not support desktop notification');
     } else if ((<any>Notification).permission === 'granted') {

@@ -1,4 +1,4 @@
-import { Component, Input, EventEmitter, Output, ViewChild, OnInit, OnChanges } from '@angular/core';
+import { Component, Input, EventEmitter, Output, OnChanges } from '@angular/core';
 
 import { Requests } from '../../shared/request';
 import { ActivatedRoute } from '@angular/router';
@@ -15,7 +15,6 @@ export class HelpRequestListComponent implements OnChanges {
   @Input() requests: Requests[];
   @Output() selected = new EventEmitter();
   @Output() deleted = new EventEmitter();
-  @ViewChild('expansionPanel') expansionPanel;
 
   constructor(private route: ActivatedRoute) {}
 

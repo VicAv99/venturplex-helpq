@@ -7,6 +7,7 @@ import { AuthGuard } from './core/auth.guard';
 const routes: Routes = [
   { path: '', component: HelpRequestsComponent },
   { path: 'help-requests', component: HelpRequestsComponent, canActivate: [AuthGuard] },
+  { path: 'help-requests/:id', component: HelpRequestsComponent },
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
 

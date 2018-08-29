@@ -1,6 +1,7 @@
 <mat-accordion class="headers-align">
-  <mat-expansion-panel *ngFor="let req of requests | async">
-    <mat-expansion-panel-header>
+  <mat-expansion-panel *ngFor="let req of requests | async"
+  [expanded]="step === req.id">
+    <mat-expansion-panel-header routerLink="/help-requests/{{req.id}}">
       <mat-panel-title>
         <h3>{{req.data.requester}}</h3>
       </mat-panel-title>

@@ -58,7 +58,9 @@ export class HelpRequestsComponent implements OnInit {
         });
       }));
     this.initForm();
-    this.authService.user.subscribe(res => this.userDisplayName = res.displayName);
+    if ((<any>this.authService.user).length) {
+      this.authService.user.subscribe(res => this.userDisplayName = res.displayName);
+    }
   }
 
   selectRequest(request) {
@@ -84,7 +86,8 @@ export class HelpRequestsComponent implements OnInit {
       'project': request.project,
       'summary': request.summary,
       'description': request.description,
-      'createdAt': timestamp
+      'createdAt': timestamp,
+      'messages': ['']
     });
     this.reset();
   }

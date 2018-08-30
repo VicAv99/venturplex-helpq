@@ -58,8 +58,9 @@ export class AuthService {
 
 
   signOut() {
+    this.router.navigateByUrl('/help-requests');
     this.afAuth.auth.signOut().then(() => {
-        this.router.navigate(['/user-profile']);
+        this.router.navigate(['/help-requests']);
     });
   }
 

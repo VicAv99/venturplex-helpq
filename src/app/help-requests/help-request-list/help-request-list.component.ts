@@ -24,6 +24,6 @@ export class HelpRequestListComponent implements OnChanges {
         this.step = id;
         this.requestLink =
           `${window.location.protocol}//${window.location.host}/help-requests/`;
-    });
+      });
   }
 }

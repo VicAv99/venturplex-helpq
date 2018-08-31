@@ -6,4 +6,5 @@ export interface Requests {
   description: string;
   createdAt: any;
   data: any;
+  messages: any[];
 }

@@ -1,0 +1,13 @@
+.row {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+button {
+  float: right;
+}

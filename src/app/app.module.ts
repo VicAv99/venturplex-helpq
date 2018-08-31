@@ -18,13 +18,15 @@ import { HelpRequestListComponent } from './help-requests/help-request-list/help
 
 import { CoreModule } from './core/core.module';
 import { environment } from '../environments/environment';
+import { ChatComponent } from './help-requests/help-request-list/chat/chat.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HelpRequestsComponent,
     HelpRequestDetailsComponent,
-    HelpRequestListComponent
+    HelpRequestListComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,

@@ -108,19 +108,19 @@ export class HelpRequestsComponent implements OnInit {
   }
 
   notify(change) {
-    // const data = change[0].payload.doc.data();
-    // const message = `${this.userDisplayName} ${change[0].type} "${data.summary}"`;
-    // if (!('Notification' in window)) {
-    //   alert('This browser does not support desktop notification');
-    // } else if ((<any>Notification).permission === 'granted') {
-    //   const notification = new Notification(message);
-    // } else if ((<any>Notification).permission !== 'denied') {
-    //   Notification.requestPermission(permission => {
-    //     if (permission === 'granted') {
-    //       const notification = new Notification(message);
-    //     }
-    //   });
-    // }
+    const data = change[0].payload.doc.data();
+    const message = `${data.requester} ${change[0].type} "${data.summary}"`;
+    if (!('Notification' in window)) {
+      alert('This browser does not support desktop notification');
+    } else if ((<any>Notification).permission === 'granted') {
+      const notification = new Notification(message);
+    } else if ((<any>Notification).permission !== 'denied') {
+      Notification.requestPermission(permission => {
+        if (permission === 'granted') {
+          const notification = new Notification(message);
+        }
+      });
+    }
   }
 
   initForm() {

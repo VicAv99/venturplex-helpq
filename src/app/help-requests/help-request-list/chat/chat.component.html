@@ -1,15 +1,14 @@
-<h3>Latest Comment</h3>
+<h3>Comments</h3>
 
-<div class="row">
+<div class="container">
   <div *ngFor="let message of request.data.messages">
     <markdown>{{message}}</markdown>
-  </div>
-
-  <div>
-    <mat-form-field>
-      <textarea matInput type="text" #message placeholder="Your message..">
-        </textarea>
-    </mat-form-field>
-    <button mat-button color="primary" (click)="newMessage(message.value)">Send message</button>
+    <hr>
   </div>
 </div>
+
+<mat-form-field>
+  <textarea matInput type="text" #message placeholder="Your message..">
+    </textarea>
+</mat-form-field>
+<button mat-button color="primary" (click)="newMessage(message.value)">Send message</button>

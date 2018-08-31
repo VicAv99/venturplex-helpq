@@ -2,10 +2,13 @@
 
 <div class="container">
   <div *ngFor="let message of request.data.messages">
-    <markdown>{{message}}</markdown>
-    <hr>
+    <div *ngIf="message">
+      <markdown>{{message}}</markdown>
+      <hr>
+    </div>
   </div>
 </div>
+
 
 <mat-form-field>
   <textarea matInput type="text" #message placeholder="Your message..">

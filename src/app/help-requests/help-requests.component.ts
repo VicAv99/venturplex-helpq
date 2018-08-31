@@ -87,7 +87,8 @@ export class HelpRequestsComponent implements OnInit {
       'summary': request.summary,
       'description': request.description,
       'createdAt': timestamp,
-      'messages': ['']
+      'messages': [''],
+      'stackblitz': request.stackblitz
     });
     this.reset();
   }
@@ -109,7 +110,7 @@ export class HelpRequestsComponent implements OnInit {
 
   notify(change) {
     const data = change[0].payload.doc.data();
-    const message = `${this.userDisplayName} ${change[0].type} "${data.summary}"`;
+    const message = `${data.requester} ${change[0].type} "${data.summary}"`;
     if (!('Notification' in window)) {
       alert('This browser does not support desktop notification');
     } else if ((<any>Notification).permission === 'granted') {
@@ -129,7 +130,8 @@ export class HelpRequestsComponent implements OnInit {
       assignee: ['Jon Garvey', Validators.required],
       project: ['', Validators.required],
       summary: ['', [Validators.required, Validators.maxLength(20)]],
-      description: ['', Validators.required]
+      description: ['', Validators.required],
+      stackblitz: ['']
     });
   }
 

@@ -16,11 +16,11 @@ export class MessagingService {
   getPermission(user) {
     this.messaging.requestPermission()
     .then(() => {
-      console.log('Notification permission granted.');
+      // console.log('Notification permission granted.');
       return this.messaging.getToken();
     })
     .then(token => {
-      console.log(token);
+      // console.log(token);
       this.saveToken(user, token);
     })
     .catch((err) => {
@@ -32,7 +32,7 @@ export class MessagingService {
     this.messaging.onTokenRefresh(() => {
       this.messaging.getToken()
       .then(refreshedToken => {
-        console.log('Token refreshed.');
+        // console.log('Token refreshed.');
         this.saveToken(user, refreshedToken);
       })
       .catch( err => console.log(err, 'Unable to retrieve new token') );
@@ -51,7 +51,7 @@ export class MessagingService {
 
   receiveMessages() {
     this.messaging.onMessage(payload => {
-     console.log('Message received. ', payload);
+    //  console.log('Message received. ', payload);
      this.messageSource.next(payload);
    });
   }

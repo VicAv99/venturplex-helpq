@@ -7,6 +7,16 @@ mat-form-field {
   margin-right: 10px;
 }
 
+iframe {
+  width: 100%;
+  height: 500px;
+}
+
+a {
+  text-decoration: none;
+  color: #3f51b5;
+}
+
 .mat-stroked-button {
   height: 40px;
 }

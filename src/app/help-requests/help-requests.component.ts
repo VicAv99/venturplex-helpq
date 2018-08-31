@@ -87,7 +87,8 @@ export class HelpRequestsComponent implements OnInit {
       'summary': request.summary,
       'description': request.description,
       'createdAt': timestamp,
-      'messages': ['']
+      'messages': [''],
+      'stackblitz': request.stackblitz
     });
     this.reset();
   }
@@ -129,7 +130,8 @@ export class HelpRequestsComponent implements OnInit {
       assignee: ['Jon Garvey', Validators.required],
       project: ['', Validators.required],
       summary: ['', [Validators.required, Validators.maxLength(20)]],
-      description: ['', Validators.required]
+      description: ['', Validators.required],
+      stackblitz: ['']
     });
   }
 

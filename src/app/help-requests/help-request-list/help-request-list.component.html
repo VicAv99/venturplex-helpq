@@ -15,7 +15,12 @@
     <div class="markdown-background">
       <markdown>{{req.data.description}}</markdown>
     </div>
+
     <app-chat [request]="req"></app-chat>
+
+    <a *ngIf="req.data?.stackblitz" [href]="req.data?.stackblitz" target="_blank">
+      Stackblitz</a>
+
     <mat-action-row>
       <mat-form-field>
         <input matInput type="text" [value]="requestLink + req.id" #itemLink>

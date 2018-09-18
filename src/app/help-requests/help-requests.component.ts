@@ -8,6 +8,9 @@ import { Observable } from 'rxjs';
 import { Requests } from '../shared/request';
 import { User } from '../shared/user';
 import { AuthService } from '../core/auth.service';
+import { SlackService } from '../core/slack.service';
+import { SlackUsers } from './../shared/slackUsers.enum';
+
 
 @Component({
   selector: 'app-help-requests',
@@ -26,10 +29,12 @@ export class HelpRequestsComponent implements OnInit {
   constructor(
     private af: AngularFirestore,
     private fb: FormBuilder,
-    public authService: AuthService
+    public authService: AuthService,
+    private slack: SlackService
   ) { }
 
   ngOnInit() {
+    this.lol();
     this.requestCol = this.af.collection('requests');
     this.requestCol.stateChanges()
       .pipe(
@@ -61,6 +66,12 @@ export class HelpRequestsComponent implements OnInit {
     if ((<any>this.authService.user).length) {
       this.authService.user.subscribe(res => this.userDisplayName = res.displayName);
     }
+  }
+
+  lol() {
+    this.slack.postMessage()
+      .subscribe(res => console.log(`RESPONSE: ${res}`));
+    console.log('FIIIIIIIIRE');
   }
 
   selectRequest(request) {

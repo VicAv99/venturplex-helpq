@@ -19,6 +19,8 @@ import { HelpRequestListComponent } from './help-requests/help-request-list/help
 import { CoreModule } from './core/core.module';
 import { environment } from '../environments/environment';
 import { ChatComponent } from './help-requests/help-request-list/chat/chat.component';
+import { HttpClientModule } from '@angular/common/http';
+import { SlackService } from './core/slack.service';
 
 @NgModule({
   declarations: [
@@ -40,9 +42,10 @@ import { ChatComponent } from './help-requests/help-request-list/chat/chat.compo
     AppMaterialModule,
     MarkdownModule.forRoot(),
     CoreModule,
-    ClipboardModule
+    ClipboardModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [SlackService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
